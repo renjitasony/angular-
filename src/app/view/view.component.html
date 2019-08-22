@@ -1,0 +1,17 @@
+<p>view works!</p>
+{{10+20}}
+<h2>Name of Employee is : {{Name}}</h2>
+<h2>Age of Employee :{{Age}}</h2>
+<h2>Email ID: {{email}}</h2>
+<h2>Address :</h2>
+<h3>{{address.Houseno}},{{address.Street}},{{address.District}}</h3>
+<h2>Hobbies</h2>
+<h3>{{Hobbies}}</h3>
+<ul>
+    <li *ngFor="let hb of Hobbies">{{hb}}</li>
+</ul>
+<table border="1px;">
+    <tr *ngFor="let hb of Hobbies">
+        <td>{{hb}}</td>
+    </tr>
+</table>
