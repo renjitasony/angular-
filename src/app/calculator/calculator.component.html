@@ -1,0 +1,9 @@
+<div>
+    <label for="num1">Number 1:</label>
+    <input type="text" name="num1" [(ngModel)]="n1">
+    <label for="num2">Number 2:</label>
+    <input type="text" name="num2" [(ngModel)]="n2">
+    <input type="button" value="Add" name="addit" (click)="Add(n1,n2)">
+    <input type="button" value="Difference" name="difit" (click)=Dif()>
+    <h5>Result:{{res}}</h5>
+</div>

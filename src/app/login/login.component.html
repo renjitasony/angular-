@@ -1,0 +1,9 @@
+<div>
+    <label for="uname">User name:</label>
+    <input type="text" name="uname">
+    <label for="pwd">Password:</label>
+    <input type="password" name="pwd">
+    <button>Login</button>
+    <a href="#" (click) = showSignUp()>Sign Up</a>
+</div>
+<app-signup *ngIf='view'></app-signup>

@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angularrr';
-  Name:String = "Arun"
+  Name:String = "Arun";
+  view:boolean= false;
 }
