@@ -1,0 +1,25 @@
+<h1>Value from service :{{val}}</h1>
+<div>
+    <label for="num1">Number 1:</label>
+    <input type="number" name="num1" id="num1" [(ngModel)]="n1">
+</div>
+<div>
+    <label for="num2">Number 2:</label>
+    <input type="number" name="num2" id="num2" [(ngModel)]="n2">
+</div>
+<div>
+        <label for="num2">Name:</label>
+        <input type="text" name="nam" id="nam" [(ngModel)]="nameof">
+    </div>
+<div>
+    <button class="btn waves-effect waves-light" (click)=Passtoservice(true)>Sum</button>
+    <button class="btn waves-effect waves-light" (click)=Passtoservice(false)>Difference</button>
+    <button class="btn waves-effect waves-light" (click)=wlcm()>Welcome</button>
+    <button class="btn waves-effect waves-light" (click)=callServer()>Call server</button>
+</div>
+
+<div *ngIf='view'>
+    <h5>Result:{{val}}</h5>
+    <h5>Result:{{msg}}</h5>
+    <h5>Server says:{{servermsg.msg}}</h5>
+</div>

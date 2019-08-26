@@ -1,7 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {} from '@angular/router';
+import {RouterModule,Routes} from '@angular/router';
+import {HttpClientModule} from '@angular/common/http'
+
+import {CalcService} from './calc.service'
+import {SoneService} from './sone.service'
 
 import { AppComponent } from './app.component';
 import { DatacmpComponent } from './datacmp/datacmp.component';
@@ -13,6 +17,24 @@ import { SignupComponent } from './signup/signup.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { NamedisplayComponent } from './namedisplay/namedisplay.component';
 import { MarkComponent } from './mark/mark.component';
+import { CrudComponent } from './crud/crud.component';
+import { HeadertemplateComponent } from './headertemplate/headertemplate.component';
+import { AddComponent } from './add/add.component';
+import { EditComponent } from './edit/edit.component';
+import { DeleteComponent } from './delete/delete.component';
+import { ViewpComponent } from './viewp/viewp.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { DataComponent } from './data/data.component';
+
+const approutes:Routes=[{path:"new",component:AddComponent},
+                        {path:"edit",component:EditComponent},
+                        {path:"delete",component:DeleteComponent},
+                        {path:"view",component:ViewpComponent},
+                        {path:"about",component:AboutComponent},
+                        {path:"contact",component:ContactComponent},
+                        {path:"service",component:DataComponent}
+                        ]
 
 @NgModule({
   declarations: [
@@ -25,12 +47,24 @@ import { MarkComponent } from './mark/mark.component';
     SignupComponent,
     CalculatorComponent,
     NamedisplayComponent,
-    MarkComponent
+    MarkComponent,
+    CrudComponent,
+    HeadertemplateComponent,
+    AddComponent,
+    EditComponent,
+    DeleteComponent,
+    ViewpComponent,
+    AboutComponent,
+    ContactComponent,
+    DataComponent
   ],
   imports: [
-    BrowserModule,FormsModule
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot(approutes),
+    HttpClientModule
   ],
-  providers: [],
+  providers: [CalcService,SoneService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
