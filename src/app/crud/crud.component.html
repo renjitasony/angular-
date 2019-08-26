@@ -1,8 +1,21 @@
 <p>crud works!</p>
-<a href="/add" class="btn">Add</a>
-<br>
-<a href="/view" class="btn">View</a>
-<br>
-<a href="/edit" class="btn">Edit</a>
-<br>
-<a href="/delete" class="btn">Delete</a>
+<div>
+    <button class="btn waves-effect waves-light">Add</button>
+    <button class="btn waves-effect waves-light" (click)=viewit()>View</button>
+    <button class="btn waves-effect waves-light">Edit</button>
+    <button class="btn waves-effect waves-light">Delete</button>
+</div>
+<div *ngIf='view'>
+    <table>
+        <tr>
+            <th>Product Id</th>
+            <th>Product name</th>
+            <th>Product price</th>
+        </tr>
+        <tr>
+            <td>{{myproduct.productid}}</td>
+            <td>{{myproduct.productname}}</td>
+            <td>{{myproduct.productprice}}</td>
+        </tr>
+    </table>
+</div>

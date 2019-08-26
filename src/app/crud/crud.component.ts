@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ProducthandleService} from '../producthandle.service'
 
 @Component({
   selector: 'app-crud',
@@ -6,10 +7,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./crud.component.css']
 })
 export class CrudComponent implements OnInit {
-
-  constructor() { }
+  myproduct;
+  view:boolean;
+  constructor(private pdctserver:ProducthandleService) { }
 
   ngOnInit() {
+    this.view =false;
   }
-
+  public add(){
+    
+  }
+  public edit(){
+    
+  }
+  public viewit(){
+    this.view =true;
+    this.pdctserver.viewData().subscribe(data=>{
+      
+      this.myproduct = data;
+      console.log(this.myproduct.productid);
+    });
+  }
+  public delete(){
+    
+  }
 }
