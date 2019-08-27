@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {RouterModule,Routes} from '@angular/router';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import {StorageServiceModule} from 'angular-webstorage-service';
 
 import {CalcService} from './calc.service'
 import {SoneService} from './sone.service'
@@ -29,7 +30,7 @@ import { DataComponent } from './data/data.component';
 import { ViewproductComponent } from './viewproduct/viewproduct.component';
 
 const approutes:Routes=[{path:"new",component:AddComponent},
-                        {path:"edit",component:EditComponent},
+                        {path:"edit/:id",component:EditComponent},
                         {path:"delete",component:DeleteComponent},
                         {path:"view",component:ViewpComponent},
                         {path:"about",component:AboutComponent},
@@ -64,7 +65,8 @@ const approutes:Routes=[{path:"new",component:AddComponent},
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(approutes),
-    HttpClientModule
+    HttpClientModule,
+    StorageServiceModule
   ],
   providers: [CalcService,SoneService],
   bootstrap: [AppComponent]

@@ -15,4 +15,8 @@ export class ProducthandleService {
     let url ="http://localhost:8000/adddata";
     return this.httpclient.post(url,clientData);
   }
+  public editData(pid){
+    let url ="http://localhost:8000/editdata";
+    return this.httpclient.post(url,{id:pid})
+  }
 }

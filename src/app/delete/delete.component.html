@@ -1,1 +1,26 @@
 <p>delete works!</p>
+<div>
+        <div>
+                <label for="pid">Name of product</label>
+                <input type="text" name="pid" id="pid" [(ngModel)]="Name">
+        </div>
+        <div>
+                <label for="pid">Price of product</label>
+                <input type="text" name="pid" id="pid" [(ngModel)]="Price">
+        </div>
+            
+            <button class="btn waves-effect waves-light" (click)='AddCart()'>Add to cart</button>
+</div>
+<div>
+    <h4>Welcome</h4>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+        <tr *ngFor='let item of cart'>
+            <td>{{item.pname}}</td>
+            <td>{{item.pprice}}</td>
+        </tr>
+    </table>
+</div>
