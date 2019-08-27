@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ProducthandleService} from '../producthandle.service'
 
 @Component({
   selector: 'app-viewp',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./viewp.component.css']
 })
 export class ViewpComponent implements OnInit {
-
-  constructor() { }
+  myproduct;
+  view:boolean;
+  constructor(private productservice:ProducthandleService) { }
 
   ngOnInit() {
+    this.viewit();
+  }
+  public viewit(){
+    this.view =true;
+    this.productservice.viewData().subscribe(data=>{
+      
+      this.myproduct = data;
+      console.log(this.myproduct[1].productid);
+    });
   }
 
 }

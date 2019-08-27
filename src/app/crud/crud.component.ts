@@ -25,7 +25,7 @@ export class CrudComponent implements OnInit {
     this.pdctserver.viewData().subscribe(data=>{
       
       this.myproduct = data;
-      console.log(this.myproduct.productid);
+      console.log(this.myproduct[1].productid);
     });
   }
   public delete(){

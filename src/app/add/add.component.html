@@ -1,1 +1,16 @@
-<p>add works!</p>
+
+<div>
+    <div>
+        <label for="pid">Product ID</label>
+        <input type="text" name="pid" id="pid" [(ngModel)]="pid">
+    </div>
+    <div>
+            <label for="pid">Product Name</label>
+            <input type="text" name="pid" id="pid" [(ngModel)]="pname">
+    </div>
+    <div>
+        <label for="pid">Product Price</label>
+        <input type="text" name="pid" id="pid" [(ngModel)]="pprice">
+    </div>
+    <button class="btn waves-effect waves-light" (click)='Adddata()'>Add</button>
+</div>

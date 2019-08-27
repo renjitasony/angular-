@@ -26,6 +26,7 @@ import { ViewpComponent } from './viewp/viewp.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { DataComponent } from './data/data.component';
+import { ViewproductComponent } from './viewproduct/viewproduct.component';
 
 const approutes:Routes=[{path:"new",component:AddComponent},
                         {path:"edit",component:EditComponent},
@@ -56,7 +57,8 @@ const approutes:Routes=[{path:"new",component:AddComponent},
     ViewpComponent,
     AboutComponent,
     ContactComponent,
-    DataComponent
+    DataComponent,
+    ViewproductComponent
   ],
   imports: [
     BrowserModule,

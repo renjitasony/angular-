@@ -1,1 +1,18 @@
-<p>viewp works!</p>
+
+
+<div>
+    <table>
+        <tr>
+            <th>Product Id</th>
+            <th>Product name</th>
+            <th>Product price</th>
+            <th>Cart</th>
+        </tr>
+        <tr *ngFor='let p of myproduct'>
+            <td>{{p.productid}}</td>
+            <td>{{p.productname}}</td>
+            <td>{{p.productprice}}</td>
+            <td><button class="btn waves-effect waves-light">Add to cart</button></td>
+        </tr>
+    </table>
+</div>

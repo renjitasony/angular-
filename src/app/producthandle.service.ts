@@ -11,5 +11,8 @@ export class ProducthandleService {
     let url ="http://localhost:8000/viewdata";
     return this.httpclient.get(url);
   }
-
+  public addData(clientData){
+    let url ="http://localhost:8000/adddata";
+    return this.httpclient.post(url,clientData);
+  }
 }
