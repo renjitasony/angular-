@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router'
+import {ActivatedRoute,Router} from '@angular/router'
 import {ProducthandleService} from '../producthandle.service'
 
 @Component({
@@ -12,19 +12,27 @@ export class EditComponent implements OnInit {
   pname:string;
   pprice:number;
   myproduct;
-  constructor(private edroute:ActivatedRoute, private productService:ProducthandleService) { }
+  constructor(private edroute:ActivatedRoute,
+              private productService:ProducthandleService,
+              private router:Router) { }
   
   ngOnInit() {
     this.pid= this.edroute.snapshot.paramMap.get('id');
-    this.productService.editData(this.pid).subscribe(data=>{
-      this.myproduct= data
-      this.pid = this.myproduct.productid;
-      this.pname = this.myproduct.productname;
-      this.pprice = this.myproduct.productprice;
-      console.log("id is"+this.pid);
-    });
-
-    
+    if(!(this.pid=="0")){
+      this.productService.getData(this.pid).subscribe(data=>{
+        this.myproduct= data
+        this.pid = this.myproduct.productid;
+        this.pname = this.myproduct.productname;
+        this.pprice = this.myproduct.productprice;
+      });
+    }
   }
-
+  public Updatedata(){
+    var product = {pid:this.pid,
+                   pname:this.pname,
+                   pprice:this.pprice
+    };
+    this.productService.updateData(product).subscribe();
+    this.router.navigateByUrl("/view");
+  }
 }

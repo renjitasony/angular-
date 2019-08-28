@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {RouterModule,Routes} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
-import {StorageServiceModule} from 'angular-webstorage-service';
+// import {StorageServiceModule} from 'angular-webstorage-service';
 
 import {CalcService} from './calc.service'
 import {SoneService} from './sone.service'
@@ -28,16 +28,22 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { DataComponent } from './data/data.component';
 import { ViewproductComponent } from './viewproduct/viewproduct.component';
+import { RloginComponent } from './rlogin/rlogin.component';
 
-const approutes:Routes=[{path:"new",component:AddComponent},
-                        {path:"edit/:id",component:EditComponent},
-                        {path:"delete",component:DeleteComponent},
-                        {path:"view",component:ViewpComponent},
-                        {path:"about",component:AboutComponent},
-                        {path:"contact",component:ContactComponent},
-                        {path:"service",component:DataComponent}
+const approutes:Routes=[
+                        {path:"",component:RloginComponent}                        
                         ]
-
+const chRoutes:Routes=[{path:"home",component:HeadertemplateComponent,children:[
+  {path:"new",component:AddComponent},
+  {path:"edit/:id",component:EditComponent},
+  {path:"delete",component:DeleteComponent},
+  {path:"view",component:ViewpComponent},
+  {path:"about",component:AboutComponent},
+  {path:"contact",component:ContactComponent},
+  {path:"service",component:DataComponent} 
+  ]}
+  
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,16 +65,18 @@ const approutes:Routes=[{path:"new",component:AddComponent},
     AboutComponent,
     ContactComponent,
     DataComponent,
-    ViewproductComponent
+    ViewproductComponent,
+    RloginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(approutes),
+    RouterModule.forRoot(approutes,{onSameUrlNavigation:'reload'}),
     HttpClientModule,
-    StorageServiceModule
+    RouterModule.forChild(chRoutes)
   ],
+  
   providers: [CalcService,SoneService],
   bootstrap: [AppComponent]
-})
+})  
 export class AppModule { }

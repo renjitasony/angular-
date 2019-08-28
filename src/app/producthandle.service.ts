@@ -15,8 +15,16 @@ export class ProducthandleService {
     let url ="http://localhost:8000/adddata";
     return this.httpclient.post(url,clientData);
   }
-  public editData(pid){
-    let url ="http://localhost:8000/editdata";
-    return this.httpclient.post(url,{id:pid})
+  public getData(pid){
+    let url ="http://localhost:8000/editdata/"+pid;
+    return this.httpclient.get(url)
+  }
+  public updateData(product){
+    let url = "http://localhost:8000/update";
+    return this.httpclient.post(url,product);
+  }
+  public deleteData(pid){
+    let url = "http://localhost:8000/delete/"+pid;
+    return this.httpclient.get(url);
   }
 }

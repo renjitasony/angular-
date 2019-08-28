@@ -2,7 +2,7 @@
 <div>
         <div>
             <label for="pid">Product ID</label>
-            <input type="text" name="pid" id="pid" [(ngModel)]="pid">
+            <input type="text" name="pid" id="pid" [(ngModel)]="pid" readonly="readonly">
         </div>
         <div>
                 <label for="pid">Product Name</label>
@@ -13,5 +13,5 @@
             <input type="text" name="pid" id="pid" [(ngModel)]="pprice">
         </div>
         
-        <button class="btn waves-effect waves-light" (click)='Adddata()'>Add</button>
+        <button class="btn waves-effect waves-light" (click)='Updatedata()'>Update</button>
     </div>
