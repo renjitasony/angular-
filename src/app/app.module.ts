@@ -31,19 +31,20 @@ import { ViewproductComponent } from './viewproduct/viewproduct.component';
 import { RloginComponent } from './rlogin/rlogin.component';
 
 const approutes:Routes=[
-                        {path:"",component:RloginComponent}                        
+                        {path:"",component:RloginComponent},
+                        {path:"home",component:HeadertemplateComponent,
+                        children:[
+                                    {path:"new",component:AddComponent},
+                                    {path:"edit/:id",component:EditComponent},
+                                    {path:"delete",component:DeleteComponent},
+                                    {path:"view",component:ViewpComponent},
+                                    {path:"about/:pid/:pname",component:AboutComponent},
+                                    {path:"contact",component:ContactComponent},
+                                    {path:"service",component:DataComponent} 
+                                  ]
+                          }                          
                         ]
-const chRoutes:Routes=[{path:"home",component:HeadertemplateComponent,children:[
-  {path:"new",component:AddComponent},
-  {path:"edit/:id",component:EditComponent},
-  {path:"delete",component:DeleteComponent},
-  {path:"view",component:ViewpComponent},
-  {path:"about",component:AboutComponent},
-  {path:"contact",component:ContactComponent},
-  {path:"service",component:DataComponent} 
-  ]}
-  
-]
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,8 +73,7 @@ const chRoutes:Routes=[{path:"home",component:HeadertemplateComponent,children:[
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(approutes,{onSameUrlNavigation:'reload'}),
-    HttpClientModule,
-    RouterModule.forChild(chRoutes)
+    HttpClientModule    
   ],
   
   providers: [CalcService,SoneService],

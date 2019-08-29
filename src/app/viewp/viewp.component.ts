@@ -19,22 +19,17 @@ export class ViewpComponent implements OnInit {
   }
   public viewit(){
     this.view =true;
-    this.productservice.viewData().subscribe(data=>{
-      
+    this.productservice.viewData().subscribe(data=>{      
       this.myproduct = data;      
     });
   }
   public Edit(pid){
-    this.router.navigate(['/edit',pid]);
-
+    this.router.navigate(['/home/edit',pid]);
   }
   public Delete(pid){
-    this.productservice.deleteData(pid).subscribe(()=>{
-              
-      this.viewit();  
-      
-    });
-    
+    this.productservice.deleteData(pid).subscribe(()=>{              
+      this.viewit();        
+    });    
   }
   public searchit(){
 

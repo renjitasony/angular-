@@ -17,7 +17,7 @@
             <th>Remove</th>
         </tr>
         <tr *ngFor='let p of myproduct'>
-            <td>{{p.productid}}</td>
+            <td><a [routerLink]="['/home/about',p.productid,p.productname]">{{p.productid}}</a></td>
             <td>{{p.productname}}</td>
             <td>{{p.productprice}}</td>
             <td><button class="btn waves-effect waves-light" (click)='Edit(p.productid)'>Edit</button></td>

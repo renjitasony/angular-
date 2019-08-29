@@ -33,6 +33,6 @@ export class EditComponent implements OnInit {
                    pprice:this.pprice
     };
     this.productService.updateData(product).subscribe();
-    this.router.navigateByUrl("/view");
+    this.router.navigateByUrl("/home/view");
   }
 }

@@ -24,7 +24,7 @@ export class AddComponent implements OnInit {
     };
     this.productService.addData(product).subscribe(data=>{
       this.serdata = data;
-      this.router.navigateByUrl("/view");      
+      this.router.navigateByUrl("/home/view");      
     });
   }
 }
